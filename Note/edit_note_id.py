@@ -42,10 +42,9 @@ def edit_note_window():
             note_window, text="Текст Заметки", font="times 15")
         label_text.grid(row=3, column=1, pady=10)
         field_name = tk.Entry(
-            note_window, width=30, text=keys.data_from_file["Name"], validate="focusout")
+            note_window, width=30, validate="focusout")
         field_name.grid(row=2, column=1, pady=10)
-        field_text = tk.Text(note_window, width=50, height=10,
-                             text=keys.data_from_file["Text"])
+        field_text = tk.Text(note_window, width=50, height=10)
         field_text.grid(row=4, column=1, pady=10, padx=20)
         button_save = tk.Button(note_window, text="Изменить",
                                 width=30, height=2, command=insert_note)
