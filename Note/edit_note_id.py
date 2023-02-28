@@ -41,9 +41,11 @@ def edit_note_window():
         label_text = tk.Label(
             note_window, text="Текст Заметки", font="times 15")
         label_text.grid(row=3, column=1, pady=10)
-        field_name = tk.Entry(note_window, width=30, validate="focusout")
+        field_name = tk.Entry(
+            note_window, width=30, text=keys.data_from_file["Name"], validate="focusout")
         field_name.grid(row=2, column=1, pady=10)
-        field_text = tk.Text(note_window, width=50, height=10)
+        field_text = tk.Text(note_window, width=50, height=10,
+                             text=keys.data_from_file["Text"])
         field_text.grid(row=4, column=1, pady=10, padx=20)
         button_save = tk.Button(note_window, text="Изменить",
                                 width=30, height=2, command=insert_note)
@@ -56,5 +58,5 @@ def edit_note_window():
 def insert_note():
     keys.data_from_file[id-1]["Name"] = field_name.get()
     keys.data_from_file[id-1]["Text"] = field_text.get("1.0", "end")
-    keys.data_from_file[id-1]["DateTime"] = str(datetime.datetime.now())  
+    keys.data_from_file[id-1]["DateTime"] = str(datetime.datetime.now())
     print_table.print_table(keys.data_from_file)
