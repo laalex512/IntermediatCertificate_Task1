@@ -10,7 +10,7 @@ def filter():
     global start_year_field, start_month_field, start_day_field, start_hour_field, start_minute_field
     global finish_year_field, finish_month_field, finish_day_field, finish_hour_field, finish_minute_field
     filter_window = tk.Tk()
-    filter_window.title("Фильтр")
+    filter_window.title("Фильтр ")
     filter_window.geometry("780x250")
 
     # Начало фильтра:
