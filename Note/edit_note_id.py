@@ -10,23 +10,22 @@ def edit_note_askID():
     ask_id_window = tk.Tk()
     ask_id_window.title("Редактировать заметку")
     ask_id_window.geometry("250x180")
-    
+
     label_id = tk.Label(ask_id_window, text="Введите ID:", font="times 15")
     label_id.grid(row=1, column=1, pady=10)
     field_id = tk.Entry(ask_id_window, width=30, validate="focusout")
     field_id.grid(row=2, column=1, pady=10)
-    
+
     button_edit = tk.Button(ask_id_window, text="Редактировать",
                             width=30, height=2, command=edit_note_window)
     button_edit.grid(row=3, column=1)
-    
+
     ask_id_window.mainloop()
 
 
 def edit_note_window():
     global id
     id = int(field_id.get())
-    print(id)
     is_exist_note = False
     for note in keys.data_from_file:
         print(note["ID"])
@@ -44,20 +43,20 @@ def edit_note_window():
         label_text = tk.Label(
             note_window, text="Текст Заметки", font="times 15")
         label_text.grid(row=3, column=1, pady=10)
-        
+
         field_name = tk.Entry(
             note_window, width=30, validate="focusout")
         field_name.grid(row=2, column=1, pady=10)
         field_name.insert(0, keys.data_from_file[id-1]["Name"])
-        
+
         field_text = tk.Text(note_window, width=50, height=10)
         field_text.grid(row=4, column=1, pady=10, padx=20)
         field_text.insert("1.0", keys.data_from_file[id-1]["Text"])
-        
+
         button_save = tk.Button(note_window, text="Изменить",
                                 width=30, height=2, command=insert_note)
         button_save.grid(row=5, column=1)
-        
+
         note_window.mainloop()
     else:
         messagebox.showerror("Ошибка", "Нет заметки с таким ID")

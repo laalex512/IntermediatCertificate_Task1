@@ -31,5 +31,4 @@ def insert_note():
     current_note["Text"] = field_text.get("1.0", "end")
     current_note["DateTime"] = str(datetime.datetime.now())
     keys.data_from_file.append(current_note)
-    print(keys.data_from_file)
     print_table.print_table(keys.data_from_file)
