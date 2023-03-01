@@ -28,7 +28,6 @@ def edit_note_window():
     id = int(field_id.get())
     is_exist_note = False
     for note in keys.data_from_file:
-        print(note["ID"])
         if id == note["ID"]:
             is_exist_note = True
     if is_exist_note:
